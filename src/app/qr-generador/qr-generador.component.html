@@ -1,0 +1,40 @@
+<div>
+    <label>Texto 1:</label>
+    <input [(ngModel)]="texto1">
+  </div>
+  <div>
+    <label>Texto 2:</label>
+    <input [(ngModel)]="texto2">
+  </div>
+  <div>
+    <label>Fecha:</label>
+    <input  type="datetime-local" [(ngModel)]="fecha">
+  </div>
+  <div>
+    <button (click)="generarQR()">Generar QR</button>
+  </div>
+  <div>
+    <button (click)="generarQR()">Generar Reporte</button>
+  </div>
+  <div>
+    <qrcode (qrCodeURL)="onChangeURL($event)" 
+              
+        [qrdata]="myAngularxQrCode"
+        [allowEmptyString]="true" 
+        [width]="200" 
+        [errorCorrectionLevel]="'M'"
+        [colorDark]="'#2a8900'"
+        [colorLight]="'#ffffffff'"
+        [elementType]="'canvas'"
+        [imageSrc]="'./assets/cruz2.png'"
+        [imageHeight]="50"
+        [imageWidth]="50"
+        [margin]="4"
+        [scale]="1">
+
+        
+    </qrcode>
+
+    <a [href]="qrCodeDownloadLink" download="qrcode">Download</a>
+  </div>
+  
